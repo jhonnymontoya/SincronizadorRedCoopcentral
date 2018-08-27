@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="urn:unECGIncomingSoapGlobal" name="IIncomingWebServiceservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:unECGIncomingSoapGlobal">
+      <xs:complexType name="TECGIncomingRequest">
+        <xs:sequence>
+          <xs:element name="Input" type="xs:string" />
+          <xs:element name="InputHash" type="xs:string" />
+          <xs:element name="InputKey" type="xs:string" />
+          <xs:element name="InputKeyHash" type="xs:string" />
+          <xs:element name="InputIdentify" type="xs:string" />
+          <xs:element name="InputIdentifyPin" type="xs:string" />
+          <xs:element name="InputSecuence" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TECGIncomingResponse">
+        <xs:sequence>
+          <xs:element name="Error" type="xs:int" />
+          <xs:element name="ErrorMsg" type="xs:string" />
+          <xs:element name="Output" type="xs:string" />
+          <xs:element name="OutputHash" type="xs:string" />
+          <xs:element name="OutputKey" type="xs:string" />
+          <xs:element name="OutputKeyHash" type="xs:string" />
+          <xs:element name="OutputSecuence" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="Request0Request">
+    <part name="inp" type="ns1:TECGIncomingRequest" />
+  </message>
+  <message name="Request0Response">
+    <part name="return" type="ns1:TECGIncomingResponse" />
+  </message>
+  <portType name="IIncomingWebService">
+    <operation name="Request">
+      <input message="tns:Request0Request" />
+      <output message="tns:Request0Response" />
+    </operation>
+  </portType>
+  <binding name="IIncomingWebServicebinding" type="tns:IIncomingWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="Request">
+      <soap:operation soapAction="urn:ECGTSIncomingSoapWebServiceIntf-IIncomingWebService#Request" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ECGTSIncomingSoapWebServiceIntf-IIncomingWebService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ECGTSIncomingSoapWebServiceIntf-IIncomingWebService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IIncomingWebServiceservice">
+    <port name="IIncomingWebServicePort" binding="tns:IIncomingWebServicebinding">
+      <soap:address location="http://www.visionamosonlinetest.com:443/admin/ECGTSIncomingHomeBanking.dll/soap/IIncomingWebService" />
+    </port>
+  </service>
+</definitions>

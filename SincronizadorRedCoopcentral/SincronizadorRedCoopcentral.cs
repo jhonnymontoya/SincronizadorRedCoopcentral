@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SincronizadorRedCoopcentral
+namespace Com.StartLineSoft.SincronizadorRedCoopcentral
 {
-    class Program
+    class SincronizadorRedCoopcentral
     {
         static void Main(string[] args)
         {
+            Monitor monitor = new Monitor();
+            monitor.Ejecutar();
         }
     }
 }

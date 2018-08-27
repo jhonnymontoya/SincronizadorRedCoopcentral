@@ -1,17 +1,18 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SincronizadorRedCoopcentral")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Sincronizador Red Coopcentral")]
+[assembly: AssemblyDescription("Crea modifica y elimina Tarjetas, Tarjetas habientes, Cupos de crédito con la Red de Coopcentral")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Start Line Soft")]
 [assembly: AssemblyProduct("SincronizadorRedCoopcentral")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright ©  Start Line Soft 2018")]
+[assembly: AssemblyTrademark("Start Line Soft SAS")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -34,3 +35,5 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguage("es-CO")]
+
