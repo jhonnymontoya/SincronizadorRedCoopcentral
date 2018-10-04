@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="EntidadesDataContext">
+  <DataContextMoniker Name="/EntidadesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="96068844-613a-4955-8998-1db52b6e9e66" absoluteBounds="0.75, 1.375, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/EntidadesDataContext/Convenio" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40415a32-ba41-4999-9b27-cae925ed634b" absoluteBounds="0.765, 1.835, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2330fea8-11e3-4645-ae81-1724d47797d7" absoluteBounds="3.5, 1.625, 2, 2.347801106770834">
+      <DataClassMoniker Name="/EntidadesDataContext/Transaccion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a289f6c1-8879-4c7c-b3ba-1169acef6184" absoluteBounds="3.515, 2.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="befa3590-f4af-41a6-8a77-0237443002fb" absoluteBounds="6.25, 1, 2, 3.6939111328124992">
+      <DataClassMoniker Name="/EntidadesDataContext/DatoTransaccion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e2b7d47b-1116-4d45-b3af-fd734c394085" absoluteBounds="6.265, 1.46, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.79890055338542); (3.5 : 2.79890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EntidadesDataContext/Convenio/Convenio_Transaccion" />
+      <nodes>
+        <classShapeMoniker Id="96068844-613a-4955-8998-1db52b6e9e66" />
+        <classShapeMoniker Id="2330fea8-11e3-4645-ae81-1724d47797d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.79890055338542); (6.25 : 2.79890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EntidadesDataContext/Transaccion/Transaccion_DatoTransaccion" />
+      <nodes>
+        <classShapeMoniker Id="2330fea8-11e3-4645-ae81-1724d47797d7" />
+        <classShapeMoniker Id="befa3590-f4af-41a6-8a77-0237443002fb" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -108,29 +108,29 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _id;
+		private int _Id;
 		
-		private string _convenio1;
+		private string _CodigoConvenio;
 		
-		private string _entidad_nombre;
+		private string _EntidadNombre;
 		
-		private string _entidad_sigla;
+		private string _EntidadSigla;
 		
-		private string _entidad_nit;
+		private string _EntidadNit;
 		
-		private string _llaveA;
+		private string _LlaveA;
 		
-		private string _llaveB;
+		private string _LlaveB;
 		
-		private string _uri;
+		private string _Uri;
 		
-		private bool _activo;
+		private bool _Activo;
 		
-		private System.Nullable<System.DateTime> _created_at;
+		private System.Nullable<System.DateTime> _CreatedAt;
 		
-		private System.Nullable<System.DateTime> _updated_at;
+		private System.Nullable<System.DateTime> _UpdatedAt;
 		
-		private EntitySet<Transaccion> _transacciones;
+		private EntitySet<Transaccion> _Transaccions;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -162,240 +162,240 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
 		
 		public Convenio()
 		{
-			this._transacciones = new EntitySet<Transaccion>(new Action<Transaccion>(this.attach_transacciones), new Action<Transaccion>(this.detach_transacciones));
+			this._Transaccions = new EntitySet<Transaccion>(new Action<Transaccion>(this.attach_Transaccions), new Action<Transaccion>(this.detach_Transaccions));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="id", Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="id", Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
 			{
-				return this._id;
+				return this._Id;
 			}
 			set
 			{
-				if ((this._id != value))
+				if ((this._Id != value))
 				{
 					this.OnIdChanging(value);
 					this.SendPropertyChanging();
-					this._id = value;
+					this._Id = value;
 					this.SendPropertyChanged("Id");
 					this.OnIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="convenio", Storage="_convenio1", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="convenio", Storage="_CodigoConvenio", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
 		public string CodigoConvenio
 		{
 			get
 			{
-				return this._convenio1;
+				return this._CodigoConvenio;
 			}
 			set
 			{
-				if ((this._convenio1 != value))
+				if ((this._CodigoConvenio != value))
 				{
 					this.OnCodigoConvenioChanging(value);
 					this.SendPropertyChanging();
-					this._convenio1 = value;
+					this._CodigoConvenio = value;
 					this.SendPropertyChanged("CodigoConvenio");
 					this.OnCodigoConvenioChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="entidad_nombre", Storage="_entidad_nombre", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="entidad_nombre", Storage="_EntidadNombre", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
 		public string EntidadNombre
 		{
 			get
 			{
-				return this._entidad_nombre;
+				return this._EntidadNombre;
 			}
 			set
 			{
-				if ((this._entidad_nombre != value))
+				if ((this._EntidadNombre != value))
 				{
 					this.OnEntidadNombreChanging(value);
 					this.SendPropertyChanging();
-					this._entidad_nombre = value;
+					this._EntidadNombre = value;
 					this.SendPropertyChanged("EntidadNombre");
 					this.OnEntidadNombreChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="entidad_sigla", Storage="_entidad_sigla", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="entidad_sigla", Storage="_EntidadSigla", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
 		public string EntidadSigla
 		{
 			get
 			{
-				return this._entidad_sigla;
+				return this._EntidadSigla;
 			}
 			set
 			{
-				if ((this._entidad_sigla != value))
+				if ((this._EntidadSigla != value))
 				{
 					this.OnEntidadSiglaChanging(value);
 					this.SendPropertyChanging();
-					this._entidad_sigla = value;
+					this._EntidadSigla = value;
 					this.SendPropertyChanged("EntidadSigla");
 					this.OnEntidadSiglaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="entidad_nit", Storage="_entidad_nit", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="entidad_nit", Storage="_EntidadNit", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
 		public string EntidadNit
 		{
 			get
 			{
-				return this._entidad_nit;
+				return this._EntidadNit;
 			}
 			set
 			{
-				if ((this._entidad_nit != value))
+				if ((this._EntidadNit != value))
 				{
 					this.OnEntidadNitChanging(value);
 					this.SendPropertyChanging();
-					this._entidad_nit = value;
+					this._EntidadNit = value;
 					this.SendPropertyChanged("EntidadNit");
 					this.OnEntidadNitChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="llaveA", Storage="_llaveA", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="llaveA", Storage="_LlaveA", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string LlaveA
 		{
 			get
 			{
-				return this._llaveA;
+				return this._LlaveA;
 			}
 			set
 			{
-				if ((this._llaveA != value))
+				if ((this._LlaveA != value))
 				{
 					this.OnLlaveAChanging(value);
 					this.SendPropertyChanging();
-					this._llaveA = value;
+					this._LlaveA = value;
 					this.SendPropertyChanged("LlaveA");
 					this.OnLlaveAChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="llaveB", Storage="_llaveB", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="llaveB", Storage="_LlaveB", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string LlaveB
 		{
 			get
 			{
-				return this._llaveB;
+				return this._LlaveB;
 			}
 			set
 			{
-				if ((this._llaveB != value))
+				if ((this._LlaveB != value))
 				{
 					this.OnLlaveBChanging(value);
 					this.SendPropertyChanging();
-					this._llaveB = value;
+					this._LlaveB = value;
 					this.SendPropertyChanged("LlaveB");
 					this.OnLlaveBChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="uri", Storage="_uri", DbType="NVarChar(1000) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="uri", Storage="_Uri", DbType="NVarChar(1000) NOT NULL", CanBeNull=false)]
 		public string Uri
 		{
 			get
 			{
-				return this._uri;
+				return this._Uri;
 			}
 			set
 			{
-				if ((this._uri != value))
+				if ((this._Uri != value))
 				{
 					this.OnUriChanging(value);
 					this.SendPropertyChanging();
-					this._uri = value;
+					this._Uri = value;
 					this.SendPropertyChanged("Uri");
 					this.OnUriChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="activo", Storage="_activo", DbType="Bit NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="activo", Storage="_Activo", DbType="Bit NOT NULL")]
 		public bool Activo
 		{
 			get
 			{
-				return this._activo;
+				return this._Activo;
 			}
 			set
 			{
-				if ((this._activo != value))
+				if ((this._Activo != value))
 				{
 					this.OnActivoChanging(value);
 					this.SendPropertyChanging();
-					this._activo = value;
+					this._Activo = value;
 					this.SendPropertyChanged("Activo");
 					this.OnActivoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="created_at", Storage="_created_at", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="created_at", Storage="_CreatedAt", DbType="DateTime")]
 		public System.Nullable<System.DateTime> CreatedAt
 		{
 			get
 			{
-				return this._created_at;
+				return this._CreatedAt;
 			}
 			set
 			{
-				if ((this._created_at != value))
+				if ((this._CreatedAt != value))
 				{
 					this.OnCreatedAtChanging(value);
 					this.SendPropertyChanging();
-					this._created_at = value;
+					this._CreatedAt = value;
 					this.SendPropertyChanged("CreatedAt");
 					this.OnCreatedAtChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="updated_at", Storage="_updated_at", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="updated_at", Storage="_UpdatedAt", DbType="DateTime")]
 		public System.Nullable<System.DateTime> UpdatedAt
 		{
 			get
 			{
-				return this._updated_at;
+				return this._UpdatedAt;
 			}
 			set
 			{
-				if ((this._updated_at != value))
+				if ((this._UpdatedAt != value))
 				{
 					this.OnUpdatedAtChanging(value);
 					this.SendPropertyChanging();
-					this._updated_at = value;
+					this._UpdatedAt = value;
 					this.SendPropertyChanged("UpdatedAt");
 					this.OnUpdatedAtChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Convenio_Transaccion", Storage="_transacciones", ThisKey="Id", OtherKey="ConvenioId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Convenio_Transaccion", Storage="_Transaccions", ThisKey="Id", OtherKey="ConvenioId")]
 		public EntitySet<Transaccion> Transaccions
 		{
 			get
 			{
-				return this._transacciones;
+				return this._Transaccions;
 			}
 			set
 			{
-				this._transacciones.Assign(value);
+				this._Transaccions.Assign(value);
 			}
 		}
 		
@@ -419,13 +419,13 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
 			}
 		}
 		
-		private void attach_transacciones(Transaccion entity)
+		private void attach_Transaccions(Transaccion entity)
 		{
 			this.SendPropertyChanging();
 			entity.Convenio = this;
 		}
 		
-		private void detach_transacciones(Transaccion entity)
+		private void detach_Transaccions(Transaccion entity)
 		{
 			this.SendPropertyChanging();
 			entity.Convenio = null;
@@ -438,25 +438,25 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _id;
+		private int _Id;
 		
-		private int _convenio_id;
+		private int _ConvenioId;
 		
-		private string _json_envio;
+		private string _JsonEnvio;
 		
-		private string _json_hash;
+		private string _JsonHash;
 		
-		private string _tipo_transaccion;
+		private string _TipoTransaccion;
 		
-		private string _estado;
+		private string _Estado;
 		
-		private System.Nullable<System.DateTime> _created_at;
+		private System.Nullable<System.DateTime> _CreatedAt;
 		
-		private System.Nullable<System.DateTime> _updated_at;
+		private System.Nullable<System.DateTime> _UpdatedAt;
 		
 		private EntitySet<DatoTransaccion> _DatoTransaccions;
 		
-		private EntityRef<Convenio> _convenio;
+		private EntityRef<Convenio> _Convenio;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -483,171 +483,171 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
 		public Transaccion()
 		{
 			this._DatoTransaccions = new EntitySet<DatoTransaccion>(new Action<DatoTransaccion>(this.attach_DatoTransaccions), new Action<DatoTransaccion>(this.detach_DatoTransaccions));
-			this._convenio = default(EntityRef<Convenio>);
+			this._Convenio = default(EntityRef<Convenio>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="id", Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="id", Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
 			{
-				return this._id;
+				return this._Id;
 			}
 			set
 			{
-				if ((this._id != value))
+				if ((this._Id != value))
 				{
 					this.OnIdChanging(value);
 					this.SendPropertyChanging();
-					this._id = value;
+					this._Id = value;
 					this.SendPropertyChanged("Id");
 					this.OnIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="convenio_id", Storage="_convenio_id", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="convenio_id", Storage="_ConvenioId", DbType="Int NOT NULL")]
 		public int ConvenioId
 		{
 			get
 			{
-				return this._convenio_id;
+				return this._ConvenioId;
 			}
 			set
 			{
-				if ((this._convenio_id != value))
+				if ((this._ConvenioId != value))
 				{
 					this.OnConvenioIdChanging(value);
 					this.SendPropertyChanging();
-					this._convenio_id = value;
+					this._ConvenioId = value;
 					this.SendPropertyChanged("ConvenioId");
 					this.OnConvenioIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="json_envio", Storage="_json_envio", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="json_envio", Storage="_JsonEnvio", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string JsonEnvio
 		{
 			get
 			{
-				return this._json_envio;
+				return this._JsonEnvio;
 			}
 			set
 			{
-				if ((this._json_envio != value))
+				if ((this._JsonEnvio != value))
 				{
 					this.OnJsonEnvioChanging(value);
 					this.SendPropertyChanging();
-					this._json_envio = value;
+					this._JsonEnvio = value;
 					this.SendPropertyChanged("JsonEnvio");
 					this.OnJsonEnvioChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="json_hash", Storage="_json_hash", DbType="NVarChar(32)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="json_hash", Storage="_JsonHash", DbType="NVarChar(32)")]
 		public string JsonHash
 		{
 			get
 			{
-				return this._json_hash;
+				return this._JsonHash;
 			}
 			set
 			{
-				if ((this._json_hash != value))
+				if ((this._JsonHash != value))
 				{
 					this.OnJsonHashChanging(value);
 					this.SendPropertyChanging();
-					this._json_hash = value;
+					this._JsonHash = value;
 					this.SendPropertyChanged("JsonHash");
 					this.OnJsonHashChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="tipo_transaccion", Storage="_tipo_transaccion", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="tipo_transaccion", Storage="_TipoTransaccion", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string TipoTransaccion
 		{
 			get
 			{
-				return this._tipo_transaccion;
+				return this._TipoTransaccion;
 			}
 			set
 			{
-				if ((this._tipo_transaccion != value))
+				if ((this._TipoTransaccion != value))
 				{
 					this.OnTipoTransaccionChanging(value);
 					this.SendPropertyChanging();
-					this._tipo_transaccion = value;
+					this._TipoTransaccion = value;
 					this.SendPropertyChanged("TipoTransaccion");
 					this.OnTipoTransaccionChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="estado", Storage="_estado", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="estado", Storage="_Estado", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
 		public string Estado
 		{
 			get
 			{
-				return this._estado;
+				return this._Estado;
 			}
 			set
 			{
-				if ((this._estado != value))
+				if ((this._Estado != value))
 				{
 					this.OnEstadoChanging(value);
 					this.SendPropertyChanging();
-					this._estado = value;
+					this._Estado = value;
 					this.SendPropertyChanged("Estado");
 					this.OnEstadoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="created_at", Storage="_created_at", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="created_at", Storage="_CreatedAt", DbType="DateTime")]
 		public System.Nullable<System.DateTime> CreatedAt
 		{
 			get
 			{
-				return this._created_at;
+				return this._CreatedAt;
 			}
 			set
 			{
-				if ((this._created_at != value))
+				if ((this._CreatedAt != value))
 				{
 					this.OnCreatedAtChanging(value);
 					this.SendPropertyChanging();
-					this._created_at = value;
+					this._CreatedAt = value;
 					this.SendPropertyChanged("CreatedAt");
 					this.OnCreatedAtChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="updated_at", Storage="_updated_at", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="updated_at", Storage="_UpdatedAt", DbType="DateTime")]
 		public System.Nullable<System.DateTime> UpdatedAt
 		{
 			get
 			{
-				return this._updated_at;
+				return this._UpdatedAt;
 			}
 			set
 			{
-				if ((this._updated_at != value))
+				if ((this._UpdatedAt != value))
 				{
 					this.OnUpdatedAtChanging(value);
 					this.SendPropertyChanging();
-					this._updated_at = value;
+					this._UpdatedAt = value;
 					this.SendPropertyChanged("UpdatedAt");
 					this.OnUpdatedAtChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Transaccion_datos_transaccion", Storage="_DatoTransaccions", ThisKey="Id", OtherKey="TransaccionId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Transaccion_DatoTransaccion", Storage="_DatoTransaccions", ThisKey="Id", OtherKey="TransaccionId")]
 		public EntitySet<DatoTransaccion> DatoTransaccions
 		{
 			get
@@ -660,34 +660,34 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Convenio_Transaccion", Storage="_convenio", ThisKey="ConvenioId", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Convenio_Transaccion", Storage="_Convenio", ThisKey="ConvenioId", OtherKey="Id", IsForeignKey=true)]
 		public Convenio Convenio
 		{
 			get
 			{
-				return this._convenio.Entity;
+				return this._Convenio.Entity;
 			}
 			set
 			{
-				Convenio previousValue = this._convenio.Entity;
+				Convenio previousValue = this._Convenio.Entity;
 				if (((previousValue != value) 
-							|| (this._convenio.HasLoadedOrAssignedValue == false)))
+							|| (this._Convenio.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._convenio.Entity = null;
+						this._Convenio.Entity = null;
 						previousValue.Transaccions.Remove(this);
 					}
-					this._convenio.Entity = value;
+					this._Convenio.Entity = value;
 					if ((value != null))
 					{
 						value.Transaccions.Add(this);
-						this._convenio_id = value.Id;
+						this._ConvenioId = value.Id;
 					}
 					else
 					{
-						this._convenio_id = default(int);
+						this._ConvenioId = default(int);
 					}
 					this.SendPropertyChanged("Convenio");
 				}
@@ -1107,7 +1107,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Transaccion_datos_transaccion", Storage="_Transaccion", ThisKey="TransaccionId", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Transaccion_DatoTransaccion", Storage="_Transaccion", ThisKey="TransaccionId", OtherKey="Id", IsForeignKey=true)]
 		public Transaccion Transaccion
 		{
 			get

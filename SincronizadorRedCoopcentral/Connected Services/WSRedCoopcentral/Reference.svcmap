@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d14448d5-60cf-40cd-bd7f-7d49153fe534" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8db8cad8-709b-4008-86b8-ef0b0758ead2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="https://www.visionamosonlinetest.com/admin/ECGTSIncomingHomeBanking.dll/wsdl/IIncomingWebService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="IIncomingWebServiceservice.wsdl" MetadataType="Wsdl" ID="bad7e247-03af-453c-b64d-7c79d3efec23" SourceId="1" SourceUrl="https://www.visionamosonlinetest.com/admin/ECGTSIncomingHomeBanking.dll/wsdl/IIncomingWebService" />
+    <MetadataFile FileName="IIncomingWebServiceservice.wsdl" MetadataType="Wsdl" ID="0ad865f5-f704-4ad6-a43e-96228317b27a" SourceId="1" SourceUrl="https://www.visionamosonlinetest.com/admin/ECGTSIncomingHomeBanking.dll/wsdl/IIncomingWebService" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

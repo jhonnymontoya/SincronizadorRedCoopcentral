@@ -31,11 +31,11 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             this.cripter = new Cripter(this.transaccion.Convenio.LlaveA, this.transaccion.Convenio.LlaveB);
         }
 
-        public Boolean crear()
+        public Boolean Crear()
         {
-            String secuenciaCrearCliente = this.obtenerNumeroSecuencia();
+            String secuenciaCrearCliente = this.ObtenerNumeroSecuencia();
             String xmlCrearCliente = this.XmlCrearCliente(secuenciaCrearCliente);
-            var dtCrearCliente = this.creaDatoTransaccion(secuenciaCrearCliente, xmlCrearCliente);
+            var dtCrearCliente = this.CreaDatoTransaccion(secuenciaCrearCliente, xmlCrearCliente);
 
             String secuenciaCrearCuentaAhorros = null;
             String xmlCrearCuentaAhorros = null;
@@ -56,76 +56,76 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             switch ((String)this.JsonObject["producto"]["modalidad"])
             {
                 case "CUENTAAHORROS":
-                    secuenciaCrearCuentaAhorros = this.obtenerNumeroSecuencia();
+                    secuenciaCrearCuentaAhorros = this.ObtenerNumeroSecuencia();
                     xmlCrearCuentaAhorros = this.XmlCrearCuentaAhorros(secuenciaCrearCuentaAhorros);
-                    dtCrearCuentaAhorros = this.creaDatoTransaccion(secuenciaCrearCuentaAhorros, xmlCrearCuentaAhorros);
+                    dtCrearCuentaAhorros = this.CreaDatoTransaccion(secuenciaCrearCuentaAhorros, xmlCrearCuentaAhorros);
                     break;
                 case "CREDITO":
-                    secuenciaCrearCuentaCorriente = this.obtenerNumeroSecuencia();
+                    secuenciaCrearCuentaCorriente = this.ObtenerNumeroSecuencia();
                     xmlCrearCuentaCorriente = this.XmlCrearCuentaCorriente(secuenciaCrearCuentaCorriente);
-                    dtCrearCuentaCorriente = this.creaDatoTransaccion(secuenciaCrearCuentaCorriente, xmlCrearCuentaCorriente);
+                    dtCrearCuentaCorriente = this.CreaDatoTransaccion(secuenciaCrearCuentaCorriente, xmlCrearCuentaCorriente);
                     break;
                 case "MIXTO":
-                    secuenciaCrearCuentaAhorros = this.obtenerNumeroSecuencia();
+                    secuenciaCrearCuentaAhorros = this.ObtenerNumeroSecuencia();
                     xmlCrearCuentaAhorros = this.XmlCrearCuentaAhorros(secuenciaCrearCuentaAhorros);
-                    dtCrearCuentaAhorros = this.creaDatoTransaccion(secuenciaCrearCuentaAhorros, xmlCrearCuentaAhorros);
+                    dtCrearCuentaAhorros = this.CreaDatoTransaccion(secuenciaCrearCuentaAhorros, xmlCrearCuentaAhorros);
 
-                    secuenciaCrearCuentaCorriente = this.obtenerNumeroSecuencia();
+                    secuenciaCrearCuentaCorriente = this.ObtenerNumeroSecuencia();
                     xmlCrearCuentaCorriente = this.XmlCrearCuentaCorriente(secuenciaCrearCuentaCorriente);
-                    dtCrearCuentaCorriente = this.creaDatoTransaccion(secuenciaCrearCuentaCorriente, xmlCrearCuentaCorriente);
+                    dtCrearCuentaCorriente = this.CreaDatoTransaccion(secuenciaCrearCuentaCorriente, xmlCrearCuentaCorriente);
                     break;
             }
 
-            String secuenciaCrearTarjeta = this.obtenerNumeroSecuencia();
+            String secuenciaCrearTarjeta = this.ObtenerNumeroSecuencia();
             String xmlCrearTarjeta = this.XmlCrearTarjeta(secuenciaCrearTarjeta);
-            DatoTransaccion dtCrearTarjeta = this.creaDatoTransaccion(secuenciaCrearTarjeta, xmlCrearTarjeta);
+            DatoTransaccion dtCrearTarjeta = this.CreaDatoTransaccion(secuenciaCrearTarjeta, xmlCrearTarjeta);
 
             if (dtCrearCuentaAhorros != null)
             {
-                secuenciaCrearRelacionCuentaAhorro = this.obtenerNumeroSecuencia();
+                secuenciaCrearRelacionCuentaAhorro = this.ObtenerNumeroSecuencia();
                 xmlCrearRelacionCuentaAhorro = this.XmlCrearRelacionCuentaAhorro(secuenciaCrearRelacionCuentaAhorro);
-                dtCrearRelacionCuentaAhorro = this.creaDatoTransaccion(secuenciaCrearRelacionCuentaAhorro, xmlCrearRelacionCuentaAhorro);
+                dtCrearRelacionCuentaAhorro = this.CreaDatoTransaccion(secuenciaCrearRelacionCuentaAhorro, xmlCrearRelacionCuentaAhorro);
             }
 
             if (dtCrearCuentaCorriente != null)
             {
-                secuenciaCrearRelacionCuentaCorriente = this.obtenerNumeroSecuencia();
+                secuenciaCrearRelacionCuentaCorriente = this.ObtenerNumeroSecuencia();
                 xmlCrearRelacionCuentaCorriente = this.XmlCrearRelacionCuentaCorriente(secuenciaCrearRelacionCuentaCorriente);
-                dtCrearRelacionCuentaCorriente = this.creaDatoTransaccion(secuenciaCrearRelacionCuentaCorriente, xmlCrearRelacionCuentaCorriente);
+                dtCrearRelacionCuentaCorriente = this.CreaDatoTransaccion(secuenciaCrearRelacionCuentaCorriente, xmlCrearRelacionCuentaCorriente);
             }
 
             //Se llama a la creación del cliente
-            if (this.llamarWs(dtCrearCliente))
+            if (this.LlamarWs(dtCrearCliente))
             {
                 return false;
             }
 
             //Se llama a la creación de la cuenta de ahorros
-            if (dtCrearCuentaAhorros != null && this.llamarWs(dtCrearCuentaAhorros))
+            if (dtCrearCuentaAhorros != null && this.LlamarWs(dtCrearCuentaAhorros))
             {
                 return false;
             }
 
             //Se llama a la creación de la cuenta corriente
-            if (dtCrearCuentaCorriente != null && this.llamarWs(dtCrearCuentaCorriente))
+            if (dtCrearCuentaCorriente != null && this.LlamarWs(dtCrearCuentaCorriente))
             {
                 return false;
             }
 
             //Se llama a la creación de la tarjeta
-            if (this.llamarWs(dtCrearTarjeta))
+            if (this.LlamarWs(dtCrearTarjeta))
             {
                 return false;
             }
 
             //Se llama a la creación de la relación con la tarjeta de ahorros
-            if (dtCrearCuentaAhorros != null & this.llamarWs(dtCrearRelacionCuentaAhorro))
+            if (dtCrearCuentaAhorros != null && this.LlamarWs(dtCrearRelacionCuentaAhorro))
             {
                 return false;
             }
 
             //Se llama a la creación de la relación con la tarjeta de ahorros
-            if (dtCrearCuentaCorriente != null & this.llamarWs(dtCrearRelacionCuentaCorriente))
+            if (dtCrearCuentaCorriente != null && this.LlamarWs(dtCrearRelacionCuentaCorriente))
             {
                 return false;
             }
@@ -133,7 +133,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             return true;
         }
 
-        private Boolean llamarWs(DatoTransaccion dato)
+        private Boolean LlamarWs(DatoTransaccion dato)
         {
             String respuesta = "";
             bool error = false;
@@ -168,7 +168,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             return error;
         }
 
-        private DatoTransaccion creaDatoTransaccion(String secuencia, String xml)
+        private DatoTransaccion CreaDatoTransaccion(String secuencia, String xml)
         {
             String xmlEncriptado = null;
             String hashXml = null;
@@ -220,26 +220,26 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
                     S01T = "W4", // Tipo terminal
                     S025 = codigoConvenio, // Entidad, Convenio
                     S040 = this.JsonObject["tercero"]["numero_identificacion"], // Número de identificación del tercero
-                    S041 = this.obtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
+                    S041 = this.ObtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
                     S042A = this.JsonObject["tercero"]["primer_nombre"], // Primer nombre
                     S042B = this.JsonObject["tercero"]["segundo_nombre"], // Segundo nombre
                     S043A = this.JsonObject["tercero"]["primer_apellido"], // Primer apellido
                     S043B = this.JsonObject["tercero"]["segundo_apellido"], // Segundo apellido
-                    S044 = this.obtenerDireccion(this.JsonObject["tercero"]), // Dirección
+                    S044 = this.ObtenerDireccion(this.JsonObject["tercero"]), // Dirección
                     S045 = "", // Dirección laboral
-                    S046 = this.obtenerTelefono(this.JsonObject["tercero"]), // Teléfono
+                    S046 = this.ObtenerTelefono(this.JsonObject["tercero"]), // Teléfono
                     S047 = "", // Teléfono laboral
-                    S048 = this.obtenerCelular(this.JsonObject["tercero"]), // Teléfono celular
-                    S049 = this.obtenerFecha(this.JsonObject["tercero"], "fecha_nacimiento"), // Fecha de nacimiento
-                    S04N = this.obtenerFecha(this.JsonObject["tercero"], "fecha_expedicion_documento_identidad"), // Fecha expedición documento de identidad
-                    S04A = this.obtenerSexo(this.JsonObject["tercero"]["sexo"]), // Sexo
-                    S04B = this.obtenerEmail(this.JsonObject["tercero"]["sexo"]), // Correo electrónico
-                    S04C = this.obtenerCodigoPais(this.JsonObject["tercero"]), // Código páis nacimiento
-                    S04D = this.obtenerCodigoDepartamento(this.JsonObject["tercero"]), // Código departamento nacimiento
-                    S04E = this.obtenerCodigoCiudad(this.JsonObject["tercero"]), // Código ciudad nacimiento
-                    S04F = this.obtenerCodigoPaisContacto(this.JsonObject["tercero"]), // Código país de residencia
-                    S04G = this.obtenerCodigoDepartamentoContacto(this.JsonObject["tercero"]), // Código departamento de residencia
-                    S04H = this.obtenerCodigoCiudadContacto(this.JsonObject["tercero"]), // Código ciudad de residencia
+                    S048 = this.ObtenerCelular(this.JsonObject["tercero"]), // Teléfono celular
+                    S049 = this.ObtenerFecha(this.JsonObject["tercero"], "fecha_nacimiento"), // Fecha de nacimiento
+                    S04N = this.ObtenerFecha(this.JsonObject["tercero"], "fecha_expedicion_documento_identidad"), // Fecha expedición documento de identidad
+                    S04A = this.ObtenerSexo(this.JsonObject["tercero"]["sexo"]), // Sexo
+                    S04B = this.ObtenerEmail(this.JsonObject["tercero"]["sexo"]), // Correo electrónico
+                    S04C = this.ObtenerCodigoPais(this.JsonObject["tercero"]), // Código páis nacimiento
+                    S04D = this.ObtenerCodigoDepartamento(this.JsonObject["tercero"]), // Código departamento nacimiento
+                    S04E = this.ObtenerCodigoCiudad(this.JsonObject["tercero"]), // Código ciudad nacimiento
+                    S04F = this.ObtenerCodigoPaisContacto(this.JsonObject["tercero"]), // Código país de residencia
+                    S04G = this.ObtenerCodigoDepartamentoContacto(this.JsonObject["tercero"]), // Código departamento de residencia
+                    S04H = this.ObtenerCodigoCiudadContacto(this.JsonObject["tercero"]), // Código ciudad de residencia
                     S03X = "CAS", // Usuario cooperativa
                     S04M = this.JsonObject["producto"]["numero_retiros_sin_cobro_red"], //Numero de transacciones sin costo
                     SE60 = 1, // Activación SMS
@@ -284,9 +284,9 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
                     S03A = "10", // Tipo de cuenta
                     S03AT = "AV", // Subcategoría de cuenta
                     S025 = codigoConvenio, // Entidad, Convenio
-                    S02V = this.obtenerFecha(this.JsonObject["cuenta_ahorro"], "fecha_apertura"), // Fecha apertura de cuenta
+                    S02V = this.ObtenerFecha(this.JsonObject["cuenta_ahorro"], "fecha_apertura"), // Fecha apertura de cuenta
                     S040 = this.JsonObject["tercero"]["numero_identificacion"], // Número de identificación del tercero
-                    S041 = this.obtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
+                    S041 = this.ObtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
                     SV00 = 1, // Si la cuenta es principal
                     SX20 = "00", // Esado de la cuenta
                     S054 = 0, // Saldo total
@@ -338,9 +338,9 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
                     S03A = "50", // Tipo de cuenta
                     S03AT = "CR", // Subcategoría de cuenta
                     S025 = codigoConvenio, // Entidad, Convenio
-                    S02V = this.obtenerFecha(this.JsonObject, "fecha_asignacion"), // Fecha apertura de cuenta
+                    S02V = this.ObtenerFecha(this.JsonObject, "fecha_asignacion"), // Fecha apertura de cuenta
                     S040 = this.JsonObject["tercero"]["numero_identificacion"], // Número de identificación del tercero
-                    S041 = this.obtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
+                    S041 = this.ObtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
                     SV00 = 0, // Si la cuenta es principal
                     SX20 = "00", // Esado de la cuenta
                     S054 = cupo, // Saldo total
@@ -388,7 +388,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
                     S025 = codigoConvenio, // Entidad, Convenio
                     S030 = this.JsonObject["tarjeta"]["numero"], // Número de la tarjeta
                     S040 = this.JsonObject["tercero"]["numero_identificacion"], // Número de identificación del tercero
-                    S041 = this.obtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
+                    S041 = this.ObtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
                     SX04 = 0, // Estado de la tarjeta
                     PSE4 = "181.143.185.66" // IP publica cliente
                 }
@@ -436,7 +436,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
                     S030 = numeroTarjeta, // Número de la tarjeta
                     S030A = hashNumeroTarjeta, // Alias tarjeta HASH
                     S040 = this.JsonObject["tercero"]["numero_identificacion"], // Número de identificación del tercero
-                    S041 = this.obtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
+                    S041 = this.ObtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
                     S03X = "CAS", // Usuario cooperativa
                     PSE4 = "181.143.185.66" // IP publica cliente
                 }
@@ -484,7 +484,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
                     S030 = numeroTarjeta, // Número de la tarjeta
                     S030A = hashNumeroTarjeta, // Alias tarjeta HASH
                     S040 = this.JsonObject["tercero"]["numero_identificacion"], // Número de identificación del tercero
-                    S041 = this.obtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
+                    S041 = this.ObtenerTipoIdentificacion(this.JsonObject["tercero"]["tipo_identificacion"]), // Tipo de identificación
                     S03X = "CAS", // Usuario cooperativa
                     PSE4 = "181.143.185.66" // IP publica cliente
                 }
@@ -503,7 +503,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
         /// Obtiene el número de la secuencia
         /// </summary>
         /// <returns></returns>
-        private String obtenerNumeroSecuencia()
+        private String ObtenerNumeroSecuencia()
         {
             var numeroSecuencia = edx.fn_obtener_numero_transaccion((int)this.transaccion.Convenio.Id);
             var secuencia = "000000" + numeroSecuencia;
@@ -516,7 +516,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
         /// </summary>
         /// <param name="tipoIdentificacion"></param>
         /// <returns></returns>
-        private int obtenerTipoIdentificacion(JToken tipoIdentificacion)
+        private int ObtenerTipoIdentificacion(JToken tipoIdentificacion)
         {
             int codigo = 0;
             String tipo = (String)tipoIdentificacion["codigo"];
@@ -542,7 +542,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             return codigo;
         }
 
-        private String obtenerDireccion(JToken tercero)
+        private String ObtenerDireccion(JToken tercero)
         {
             String dir = "";
             try
@@ -555,7 +555,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             return dir;
         }
 
-        private String obtenerTelefono(JToken tercero)
+        private String ObtenerTelefono(JToken tercero)
         {
             String telefono = "";
             try
@@ -568,7 +568,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             return telefono;
         }
 
-        private String obtenerCelular(JToken tercero)
+        private String ObtenerCelular(JToken tercero)
         {
             String celular = "";
             try
@@ -581,7 +581,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             return celular;
         }
 
-        private String obtenerFecha(JToken tercero, String campo)
+        private String ObtenerFecha(JToken tercero, String campo)
         {
             String fecha = "";
             try
@@ -594,7 +594,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             return fecha;
         }
 
-        private String obtenerSexo(JToken sexo)
+        private String ObtenerSexo(JToken sexo)
         {
             String codigo = "";
             String tipo = (String)sexo["nombre"];
@@ -614,7 +614,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             return codigo;
         }
 
-        private String obtenerEmail(JToken tercero)
+        private String ObtenerEmail(JToken tercero)
         {
             String email = "";
             try
@@ -627,7 +627,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             return email;
         }
 
-        private String obtenerCodigoPais(JToken tercero)
+        private String ObtenerCodigoPais(JToken tercero)
         {
             String codigoPais = "";
             try
@@ -644,7 +644,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
         /// </summary>
         /// <param name="tercero"></param>
         /// <returns></returns>
-        private String obtenerCodigoDepartamento(JToken tercero)
+        private String ObtenerCodigoDepartamento(JToken tercero)
         {
             String codigoDepartamento = "";
             try
@@ -663,7 +663,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
         /// </summary>
         /// <param name="tercero"></param>
         /// <returns></returns>
-        private String obtenerCodigoCiudad(JToken tercero)
+        private String ObtenerCodigoCiudad(JToken tercero)
         {
             String codigoCiudad = "";
             try
@@ -677,7 +677,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             return codigoCiudad;
         }
 
-        private String obtenerCodigoPaisContacto(JToken tercero)
+        private String ObtenerCodigoPaisContacto(JToken tercero)
         {
             String codigoPais = "";
             try
@@ -694,7 +694,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
         /// </summary>
         /// <param name="tercero"></param>
         /// <returns></returns>
-        private String obtenerCodigoDepartamentoContacto(JToken tercero)
+        private String ObtenerCodigoDepartamentoContacto(JToken tercero)
         {
             String codigoDepartamento = "";
             try
@@ -713,7 +713,7 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
         /// </summary>
         /// <param name="tercero"></param>
         /// <returns></returns>
-        private String obtenerCodigoCiudadContacto(JToken tercero)
+        private String ObtenerCodigoCiudadContacto(JToken tercero)
         {
             String codigoCiudad = "";
             try

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28010.2003
+VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SincronizadorRedCoopcentral", "SincronizadorRedCoopcentral\SincronizadorRedCoopcentral.csproj", "{FF07AF86-05A4-457C-9682-F1998DB3278E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SincronizadorRedCoopcentral", "SincronizadorRedCoopcentral\SincronizadorRedCoopcentral.csproj", "{0BFCF88E-41EB-4020-B1BA-AA069E91582C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FF07AF86-05A4-457C-9682-F1998DB3278E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF07AF86-05A4-457C-9682-F1998DB3278E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF07AF86-05A4-457C-9682-F1998DB3278E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF07AF86-05A4-457C-9682-F1998DB3278E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BFCF88E-41EB-4020-B1BA-AA069E91582C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BFCF88E-41EB-4020-B1BA-AA069E91582C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BFCF88E-41EB-4020-B1BA-AA069E91582C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BFCF88E-41EB-4020-B1BA-AA069E91582C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {46608FC6-2A6C-4AF5-8E5E-C310EAAD7E48}
+		SolutionGuid = {CFC46B79-D4A5-4FA3-BB15-A952EE970F34}
 	EndGlobalSection
 EndGlobal

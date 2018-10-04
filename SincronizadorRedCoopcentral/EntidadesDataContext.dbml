@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="sincronizadorRedCoopcentral" Class="EntidadesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JHONNYMONTOYA;Initial Catalog=sincronizadorRedCoopcentral;Integrated Security=True" SettingsObjectName="Com.StartLineSoft.SincronizadorRedCoopcentral.Properties.Settings" SettingsPropertyName="sincronizadorRedCoopcentralConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.convenios" Member="Convenios">
+    <Type Name="Convenio">
+      <Column Name="id" Member="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="convenio" Member="CodigoConvenio" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="entidad_nombre" Member="EntidadNombre" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="entidad_sigla" Member="EntidadSigla" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="entidad_nit" Member="EntidadNit" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="llaveA" Member="LlaveA" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="llaveB" Member="LlaveB" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="uri" Member="Uri" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="activo" Member="Activo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="created_at" Member="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="updated_at" Member="UpdatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Convenio_Transaccion" Member="Transaccions" ThisKey="Id" OtherKey="ConvenioId" Type="Transaccion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.transacciones" Member="Transaccions">
+    <Type Name="Transaccion">
+      <Column Name="id" Member="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="convenio_id" Member="ConvenioId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="json_envio" Member="JsonEnvio" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="json_hash" Member="JsonHash" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="tipo_transaccion" Member="TipoTransaccion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Member="Estado" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="created_at" Member="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="updated_at" Member="UpdatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Transaccion_DatoTransaccion" Member="DatoTransaccions" ThisKey="Id" OtherKey="TransaccionId" Type="DatoTransaccion" />
+      <Association Name="Convenio_Transaccion" Member="Convenio" ThisKey="ConvenioId" OtherKey="Id" Type="Convenio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.datos_transaccion" Member="DatoTransaccions">
+    <Type Name="DatoTransaccion">
+      <Column Name="id" Member="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="transaccion_id" Member="TransaccionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="anio" Member="Anio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="mes" Member="Mes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dia" Member="Dia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="numero_secuencia" Member="NumeroSecuencia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="numero" Member="Numero" Type="System.String" DbType="VarChar(22) NOT NULL" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="xml_envio" Member="XmlEnvio" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" />
+      <Column Name="xml_envio_encriptado" Member="XmlEnvioEncriptado" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" />
+      <Column Name="hashXml" Member="HashXml" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="xml_respuesta" Member="XmlRespuesta" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" />
+      <Column Name="xml_respuesta_encriptada" Member="XmlRespuestaEncriptada" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" />
+      <Column Name="es_erroneo" Member="EsErroneo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="created_at" Member="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="updated_at" Member="UpdatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Transaccion_DatoTransaccion" Member="Transaccion" ThisKey="TransaccionId" OtherKey="Id" Type="Transaccion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.fn_obtener_numero_transaccion" Method="fn_obtener_numero_transaccion" IsComposable="true">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
