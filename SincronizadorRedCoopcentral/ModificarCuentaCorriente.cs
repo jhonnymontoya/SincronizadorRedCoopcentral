@@ -124,6 +124,12 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
             var cupo = (string)this.JsonObject["cupoDisponible"];
             cupo = cupo.Replace(".", "");
 
+            //El cupo disponible no tiene los dos ceros de más que son importantes
+            //la razon, es porque es un campo dinamico en los listeners de fonadmin
+            //no casteado en el modelo
+
+            cupo = cupo + "00";
+
             var obj = new
             {
                 ECG = new
