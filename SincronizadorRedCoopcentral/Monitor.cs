@@ -49,6 +49,9 @@ namespace Com.StartLineSoft.SincronizadorRedCoopcentral
 
                 foreach (Transaccion t in transacciones)
                 {
+                    t.Estado = "ENPROCESO";
+                    t.UpdatedAt = DateTime.Now;
+                    this.edx.SubmitChanges();
                     var cth = new ModificarCuentaCorriente(t);
                     var estado = cth.Crear();
                     t.Estado = estado ? "PROCESADO" : "ERROR";
